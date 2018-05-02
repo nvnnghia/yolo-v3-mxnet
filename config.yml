@@ -1,0 +1,14 @@
+---
+## Detection
+out_dir: 'output/'                                             # directory content all the output files
+gpu: True                                                      # whether using gpu or not
+confidence_thresh: 0.5                                         # detection confident threshold
+prefix : 'model/yolo2-voc'                                     # model directory
+epoch : 255                                                    # model epoch
+data_shape: 416                                                # data shape
+mean_r: 123
+mean_g: 117 
+mean_b: 104 
+list_images_name: 'testfile.txt'                               # list of input image names
+image_folder: 'output/RandomImage'                             # folder content all the input images
+out_image_folder: 'ImageOut'                                   # folder content all the output images
