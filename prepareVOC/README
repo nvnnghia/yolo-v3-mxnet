@@ -1,1 +1,23 @@
-readme
+## Chỉnh sửa cấu trúc dữ liệu VOC2007 và VOC2012 để huấn luyện với một số đối tượng nhất định trong 20 đối tượng của VOC dataset.
+Code này chuẩn bị dữ liệu để train với 5 đối tượng đó là dog, car, person, motorbike và bicycle. 
+Tất cả data của 5 đối tượng này được lấy từ VOC2007 và VOC2012 dataset. Nếu muốn thay đổi số lượng các đối tượng hay thay đổi đối tượng cần thay đổi một số chổ trong code.
+Những cái thay đổi là: file xml chứa thông tin các object có trong tập ảnh train. (label). file trainval.txt chưa danh sách các tên files của ảnh cũng như xml files. File test.txt
+Cấu trúc thư mục dùng là:
+
+VOCdevkit
+    VOC2007
+        Annotations  (dùng để lưu các file xml sau khi đã xử lí, loại bỏ các đối tượng dư thừa)
+        Annotations1 (chứa các file xml gốc)
+        .
+        .
+        .
+    readxml2007.py
+    readxml2012.py
+
+Sau khi run readxml2007.py (python readxml2007.py) thì sẽ tạo ra 2 files .txt ở cùng thư mục. Hai files này chưa thông tin danh sách các tên ảnh cũng như xml file sau khi lọc bớt các ảnh dư thừa (tương đương với trainval.txt và test.txt). 
+Copy 2 files này vào thư mục VOC2007/ImageSets/Main khi huấn luyện thì sử dụng 2 files này thay thế cho 2 files trainval.txt và test.txt
+Sau khi run readxml2012py (python readxml2012py) thì sẽ tạo ra 1 file .txt ở cùng thư mục. File này chưa thông tin danh sách các tên ảnh cũng như xml file sau khi lọc bớt các ảnh dư thừa (tương đương với trainval.txt). 
+Copy file này vào thư mục VOC2012/ImageSets/Main khi huấn luyện thì sử dụng file này thay thế cho file trainval.txt.
+
+Lưu ý: Đối với mxnet, khi sử dụng code để tạo ra các files .rec, .idx, .lst. cần chú ý thay đổi danh sách tên các đối tượng cần huấn luyện ở file dataset/names/pascal_voc.names.
+Tương tự như vậy khi train cũng cần thay đổi danh sách đối tượng cần train tương ứng.
