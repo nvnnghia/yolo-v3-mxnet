@@ -3,4 +3,4 @@ The reimplementation of YOLO-V3 in Mxnet
 
 Not ready yet
 
-Do not try this code. I just do some stuff here
+Do not try this code. I just do some stuffs here
